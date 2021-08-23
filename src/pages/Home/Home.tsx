@@ -110,11 +110,7 @@ const Home: React.FC = () => {
       <Header />
       <S.Content>
         {isModalShown && (
-          <Modal
-            Todo={todoToBeEdited}
-            submitEdition={submitEdition}
-            closeModal={closeModal}
-          />
+          <Modal submitEdition={submitEdition} closeModal={closeModal} />
         )}
 
         <S.NewContainer>
