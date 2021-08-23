@@ -68,7 +68,7 @@ export const ContentHeader = styled.header`
   color: #3d3d4d;
   background: #ffffff;
 
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
 
   span {
     font-family: "DM Sans", sans-serif;
@@ -77,74 +77,52 @@ export const ContentHeader = styled.header`
   }
 `;
 
-export const TodoItem = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
-  width: 100%;
-  padding: 8px;
-  margin-top: 16px;
-
-  text-align: center;
-  background: #ffffff;
-
-  transition: background 0.4s;
-  transition: color 0.4s;
-
-  &:hover {
-    background: rgb(39, 61, 166, 1);
-    color: #ffffff;
-  }
-`;
-
-export const StatusText = styled.p`
-  position: relative;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-
-  .complete {
-    background: #00ff59;
-  }
-
-  .active {
-    background: #365db9;
-  }
-`;
-
-export const StatusPoint = styled.span`
-  display: flex;
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  top: 45%;
-  right: 24%;
-  margin-right: 30px;
-  border-radius: 50%;
-  margin-left: 4px;
-`;
-
-export const TrashButton = styled.button`
-  position: absolute;
-  right: 0;
-  top: 10%;
-  background: transparent;
-  border: 0;
-  svg {
-    color: red;
-  }
-`;
-
-export const SetCompletedButton = styled.button`
-  position: absolute;
-  left: 0;
-  top: 20%;
-  background: transparent;
-`;
-
 export const SetAllCompletedButton = styled.button`
   position: absolute;
   top: 40%;
   left: 0;
   margin-left: 8px;
+`;
+
+export const Footer = styled.header`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px;
+  margin-top: 16px;
+  border-radius: 0 0 8px 8px;
+
+  background: #ffffff;
+
+  p {
+    height: 32px;
+    background: #000000;
+    width: 1px;
+    margin-right: 16px;
+  }
+`;
+
+export const TodoLeft = styled.span`
+  font-family: "Dm Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 16px;
+`;
+
+export const DeleteButton = styled.button`
+  padding: 8px;
+  background: red;
+  border-radius: 8px;
+  margin-right: 16px;
+`;
+
+export const Filter = styled.ul`
+  font-family: "Dm Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+export const FilterBox = styled.input`
+  margin-right: 6px;
+  cursor: pointer;
 `;
