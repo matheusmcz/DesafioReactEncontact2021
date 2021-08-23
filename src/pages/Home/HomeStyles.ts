@@ -7,13 +7,22 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
+export const Content = styled.section`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 100px 440px;
+  background: transparent;
+  border-radius: 8px;
+  padding: 16px 0px;
+  filter: drop-shadow(0px 24px 64px rgba(0, 0, 0, 0.349));
+`;
+
 export const NewContainer = styled.div`
   display: flex;
-  position: absolute;
+  justify-content: flex-end;
+  margin-bottom: 16px;
   align-items: center;
-  right: 0;
-  top: 0;
-  margin-top: -45px;
 `;
 
 export const Input = styled.input`
@@ -45,16 +54,6 @@ export const NewTodoButton = styled.button`
   &:hover {
     filter: brightness(0.8);
   }
-`;
-export const Content = styled.section`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  margin: 100px 440px;
-  background: transparent;
-  border-radius: 8px;
-  padding: 16px 0px;
-  filter: drop-shadow(0px 24px 64px rgba(0, 0, 0, 0.349));
 `;
 
 export const ContentHeader = styled.header`

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { uuid } from "uuidv4";
 import Header from "../../components/Header/Header";
+import Modal from "../../components/Modal/Modal";
 import RenderTodos from "../../components/RenderTodos/RenderTodos";
 import { api } from "../../services/api";
 import { TodoList } from "../../util/interfaces/interfaces";
@@ -19,6 +20,8 @@ const Home: React.FC = () => {
   const [allChecked, setAllChecked] = useState(false);
   const [isCompletedFilterActive, setIsCompletedFilterActive] = useState(false);
   const [isActiveFilterActive, setIsActiveFilterActive] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [todoToBeEdited, setTodoToBeEdited] = useState<TodoList[]>([]);
   const remainingTodos = todoList.filter((item) => !item.isDone && { ...item });
 
   function handleCreateNewTodo(e: any) {
@@ -65,8 +68,19 @@ const Home: React.FC = () => {
 
   //Função para edição (incompleto)
 
-  function editTodo(id: string) {
+  function editTodo(id: String) {
+    setIsModalShown(!isModalShown);
     const todoToBeEdited = todoList.filter((item) => item.id === id && item);
+    setTodoToBeEdited(todoToBeEdited);
+  }
+
+  function submitEdition(e: string) {
+    const editedTodo = todoToBeEdited.filter((item) => (item.title = e));
+    setTodoToBeEdited(editedTodo);
+  }
+
+  function closeModal() {
+    setIsModalShown(!isModalShown);
   }
 
   function filterCompletedTodos() {
@@ -95,6 +109,14 @@ const Home: React.FC = () => {
     <S.Container>
       <Header />
       <S.Content>
+        {isModalShown && (
+          <Modal
+            Todo={todoToBeEdited}
+            submitEdition={submitEdition}
+            closeModal={closeModal}
+          />
+        )}
+
         <S.NewContainer>
           <form onSubmit={handleCreateNewTodo}>
             <S.Input
